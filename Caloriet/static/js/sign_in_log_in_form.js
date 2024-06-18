@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/fireba
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD5PrTQ-IGyjVNfGBnK1IFI-9K2Cdz8FWg",
+  apiKey: "api_key",
   authDomain: "caloriet-140e0.firebaseapp.com",
   projectId: "caloriet-140e0",
   storageBucket: "caloriet-140e0.appspot.com",
