@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Track</title>
+    <link rel="stylesheet" href="/static/css/dtstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&amp;display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- empty navbar -->
+    {% include 'navbar.html'%}
+    <main>
+        <div class="mainbody">
+
+            <!-- User Profile -->
+            <div class="userprofile">
+                <div class="uimg"><img src="/static/assets/user.png" alt=""></div>
+                <div class="udetail">
+                    <h3>{{name}}</h3>
+                    <p><strong>Age : </strong><span id="uage">{{age}}</span></p>
+                    <div id="info">
+                        <p><strong>Weight : </strong><span id="uweight">{{weight}} kg</span></p>
+                        <p><strong>Height : </strong><span id="uheight">{{height}} cm</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Section -->
+            <div class="date">
+                <date-picker format="DDDD DD MMM.YYYY"></date-picker>
+            </div>
+
+            <!-- Food Log Section -->
+<!--            <div id="meals">-->
+<!--                {% for meal in data:%}-->
+<!--                <div class="head">-->
+
+<!--                    <h3>Meals</h3>-->
+<!--                    &lt;!&ndash; <div class="m">-->
+<!--                        <a href="#"><p>Edit</p></a>-->
+<!--                        <button type="button" data-modal-target="#form-add-meal"><img src="./fork.png" alt="icn">Add Food</button>-->
+<!--                        <button type="button" onclick="toggle()" href="#"><img src="../assets/fork.png" alt="icn">Add Food</button>-->
+<!--                    </div> &ndash;&gt;-->
+<!--                </div>-->
+<!--                <div id="breakfast">-->
+<!--                    <h5>{{meal["MealType"]}}</h5>-->
+<!--&lt;!&ndash;                    <div class="card">&ndash;&gt;-->
+<!--                        &lt;!&ndash; <img src="./scrambled egg.jpg" alt="scrambled egg"> &ndash;&gt;-->
+<!--                        <div class="fd">-->
+<!--                            <h3>{{meal["FoodName"]}}</h3>-->
+<!--                            <p class="cal">{{meal["Calories"]}}</p>-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+            <!-- Food Log Section -->
+<!--                <div id="meals">-->
+<!--                    {% for meal_type, meal_data in meal_data.items() %}-->
+<!--                    <div class="head">-->
+<!--                        <h3>Meals</h3>-->
+<!--                    </div>-->
+<!--                    <div id="{{ meal_type|lower }}">-->
+<!--                        <h5>{{ meal_data['MealType'] }}</h5>-->
+<!--                        <div class="fd">-->
+<!--                            <h3>{{ meal_data['FoodName'] }}</h3>-->
+<!--                            <p class="cal">{{ meal_data['Calories'] }}</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+<!--                    &lt;!&ndash; End Button &ndash;&gt;-->
+<!--                    <a href="{{ url_for('report_page') }}"><button type="button" class="end">done logging</button></a>-->
+<!--                </div>-->
+            <!-- Food Log Section -->
+                <!-- Food Log Section -->
+<div id="meals">
+    {% for meal_type, meal_info in meal_data.items() %}
+    <div class="head">
+        <h3>Meals</h3>
+    </div>
+    <div id="{{ meal_type|lower }}">
+        <h5>{{ meal_info['MealType'] }}</h5>
+        <div class="fd">
+            <h3>{{ meal_info['FoodName'] }}</h3>
+            <p class="cal">{{ meal_info['Calories'] }}</p>
+            <p>Macros: Protein: {{ meal_info['Macros']['Protein'] }}, Fat: {{ meal_info['Macros']['Fat'] }}, Carbs: {{ meal_info['Macros']['Carbs'] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- End Button -->
+</div>
+
+
+
+            <!-- End Button -->
+            <a href="{{url_for('report_page')}}"><button type="button" class="end">done logging</button></a>
+<!--        </div>-->
+
+        <div class="chart">
+
+        </div>
+
+        <!--  Form for Adding a Meal -->
+        <!-- <div class="form-add-meal" id="form-add-meal">
+            <form action="" method="post" id="add-meal">
+                <button data-close-button class="close" type="button">&times;</button>
+                <div class="form" id="f1">
+                    <label for="meal">Meal</label>
+                    <select name="meal" id="meal">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="snack">Snack</option>
+                        <option value="dinner">Dinner</option>
+                    </select>
+                </div>
+                <div class="form" id="f2">
+                    <label for="food">Food</label>
+                    <input type="text" name="food" id="food">
+                    <button type="button"><img src="../assets/search.png" alt="search data"></button>
+                </div>
+                <div class="form" id="f3">
+                    <label for="servings">Servings</label>
+                    <input type="number" name="servings" id="servings">
+                </div>
+                <button type="submit" class="add_food_btn">Add</button>
+            </form>
+        </div> -->
+
+        <!-- Display added meals -->
+        <!-- <ul id="added-meals"> -->
+            <!-- <li>
+                <p>Breakfast: 2 eggs</p>
+                <p>Calories: 200</p>
+                <p>Date: 2020-07-01</p>
+                <button class="delete">Delete</button>
+            </li> -->
+        <!-- </ul> -->
+        </div>
+    </main>
+
+
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="/static/scripts/main.js"></script>
+
+    <script src="/static/js/dtscript.js"></script>
+</body>
+</html>

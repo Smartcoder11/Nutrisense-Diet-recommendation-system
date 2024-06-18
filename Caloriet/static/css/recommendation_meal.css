@@ -1,0 +1,22 @@
+.date{
+    margin-bottom:50px;
+}
+
+.ad{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.ad1{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+
+body{
+    margin:0;
+    padding:0;

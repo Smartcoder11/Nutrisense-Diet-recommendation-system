@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Varela Round", sans-serif;
+}
+
+body{
+    width: 100% !important;
+    height: 100vh !important;
+    background: #FFF6E0;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #161A30;
+    color: #B6BBC4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 130px;
+    margin: 10px;
+    width: 1405px;
+    border-radius: 10px;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.navbar #logo{
+    font-weight: bold;
+    font-family: "Cedarville Cursive", cursive;
+    letter-spacing: 1.5px;
+}
+
+.navbar #logo:hover {
+    cursor: pointer;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #B6BBC4;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.navbar .menu a:hover {
+    background-color: #61677A;
+    border-radius: 5px;
+}
+
+.profile img {
+    width: 18px;
+    height: 18px;
+}
+
+.profile img:hover {
+    cursor: pointer;
+}
+
+/* Main body styling */
+.mainbody {
+    position: absolute;
+    top: 78px;
+    left: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1405px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    /* background: #CCD3CA; */
+    background-image: linear-gradient(to top right, #CCD3CA, #FFF6E0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mainbody-content {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.mainbody-content-left {
+    text-align: left;
+    align-items: center;
+    width: 900px;
+}
+
+.mainbody-content h1 {
+    font-family: 'Kalnia', serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.mainbody-content p {
+    font-size: 1.3rem;
+    color: #555; 
+    margin-bottom: 35px;
+    font-family: 'Noto Sans Kawi', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.mainbody-content p span {
+    font-weight: bold;
+    font-family: 'Noto Sans Kawi', sans-serif;
+}
+
+.mainbody-content .btns{
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainbody-content button {
+    background-color: #BE7575; /* Coral color for button */
+    color: #fff;
+    border: 2px solid #BE7575;
+    padding: 10px 30px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: capitalize;
+}
+
+.mainbody-content button:hover {
+    background-color: #B06161; 
+    transform: translateY(-1.5px);
+    border: 2px solid #B06161;
+}
+
+.mainbody-content .d{
+    background: none;
+    border: 2px solid #BE7575;
+    color: #BE7575
+}
+
+.mainbody-content .d:hover{
+    background-color: #BE7575;
+    color: #fff;
+    transform: translateY(-1.5px);
+}
+
+.mainbody-content img {
+    position: absolute;
+    top: 0;
+    left: 76%;
+    width: 230px;
+    height: 90%;
+}
+
+/* Reciepe Recommendation part */
+.recipe {
+    position: absolute;
+    top: 71.5vh;
+    left: 10px;
+    border-radius: 10px;
+    /* background: #FFEFC4; */
+    background-image: linear-gradient(to bottom, #FFEFC4, #FFF6E0);
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 60px;
+    text-align: center;
+    width: 430px;
+    height: auto;
+}
+
+.recipe img{
+    width: 260px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.recipe h2 {
+    color: #333; /* Dark text color */
+    font-size: 1.58rem;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Noto Sans Kawi', sans-serif;
+}
+
+.recipe .btn{
+    display: inline-block;
+    background-color: #BE7575; /* Coral color for button */
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: capitalize;
+}
+
+.recipe .btn:hover {
+    cursor: pointer;
+    background-color: #B46060;
+    transform: translateY(-3px);
+}
+
+/*************** Daily Report ************/
+
+.report {
+    position: absolute;
+    top: 71.5vh;
+    left: 455px;
+    border-radius: 10px;
+    /* background: #F3F8FF; */
+    background-image: linear-gradient(to bottom, #F3F8FF, #FFF6E0);
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 50px;
+    text-align: center;
+    width: 400px;
+    height: auto;
+}
+
+.report img{
+    width: auto;
+    height: 240px;
+    margin-bottom: 40px;
+    margin-top: 25px;
+}
+
+.report h2 {
+    color: #333; /* Dark text color */
+    font-size: 1.58rem;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    font-family: 'Noto Sans Kawi', sans-serif;
+}
+
+.report .btn{
+    display: inline-block;
+    background-color: #BE7575; /* Coral color for button */
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: capitalize;
+}
+
+.report .btn:hover {
+    cursor: pointer;
+    background-color: #B46060;
+    transform: translateY(-3px);
+}
+
+/*************** About Us ************/
+.about {
+    position: absolute;
+    top: 71.5vh;
+    left: 870px;
+    border-radius: 10px;
+    background: url(/static/assets/about_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 42px;
+    text-align: justify;
+    width: 100%;
+    max-width: 545px;
+    height: auto;
+    color: #333;
+}
+.about .bg_style{
+    width: 500;
+    height: auto;
+    padding: 30px 50px;
+    background: linear-gradient(135deg, rgba(226, 247, 212, 0.348), rgba(237, 241, 157, 0.381));
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    font-family: 'Kalnia', serif;
+}
+
+.about p{
+    font-family: 'Noto Sans Kawi', sans-serif;
+    line-height: 1.8;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact .icn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+}
+
+.icn img{
+    width: 30px;
+}
+
+.contact button{
+    background-color: #FEFDED; /* Coral color for button */
+    color: #333;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-align: center;
+    align-items: center;
+}
+
+/******************* Footer *******************/
+.footer {
+    position: absolute;
+    top: 137vh;
+    left: 10px;
+    width: 100%;
+    max-width: 1405px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    background-color: #161A30;
+    color: #B6BBC4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #B6BBC4;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.footer a:hover {
+    background-color: #61677A;
+    border-radius: 5px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 1405px) {
+    .navbar {
+        width: 100%;
+        padding: 12px 10px;
+    }
+
+    .mainbody {
+        top: 75px;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 60vh;
+    }
+
+    .mainbody-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mainbody-content img {
+        left: 70%;
+        width: 200px;
+    }
+
+    .recipe {
+        top: 71.5vh;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .report {
+        top: 71.5vh;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .about {
+        top: 71.5vh;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        top: 90vh;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 10vh;
+    }
+}
+/* </style>
+<script type="text/javascript">
+    const menu = document.querySelector('.menu');
+    const navbar = document.querySelector('.navbar ul');
+
+    menu.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+
+    // Add active class to current page's navigation link
+    let path = window.location.href;
+    let title = document.title;
+    let links = document.getElementsByTagName("a");
+    for (let i=0; i < links.length; i++) {
+        if (path.includes(links[i].href) || title.includes(links[i].text)) {
+            links[i].classList.add("active");
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="navbar">
+        <div id="logo">Healthy Living</div>
+        <ul>
+            <li class="menu"><a href="#">Menu</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipe.html">Recipe</a></li>
+            <li><a href="report.html">Daily Report</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="profile.html" class="profile"><img src="images/profile.png" alt="Profile"></a></li>
+        </ul>
+    </div>
+
+    <div class="mainbody">
+        <div class="mainbody-content">
+            <div class="mainbody-content-left">
+                <h1>Healthy Living</h1>
+                <p>Healthy living is a way of life that includes regular exercise, a balanced diet, and avoiding harmful habits like smoking and drinking. It is essential for maintaining good health and preventing chronic diseases. A healthy lifestyle can help you feel better, look better, and live longer.</p>
+                <button>Learn More</button>
+            </div>
+            <img src="images/healthy-living.png" alt="Healthy Living">
+        </div>
+    </div>
+
+    <div class="recipe">
+        <img src="images/recipe.png" alt="Recipe">
+        <h2>Healthy Recipe</h2>
+        <a href="recipe.html" class="btn">View Recipe</a>
+    </div>
+
+    <div class="report">
+        <img src="images/report.png" alt="Daily Report">
+        <h2>Daily Report</h2>
+        <a href="report.html" class="btn">View Report</a>
+    </div>
+
+    <div class="about">
+        <img src="images/about.png" alt="About Us">
+        <h2>About Us</h2>
+        <a href="about.html" class="btn">Learn More</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2021 Healthy Living. All rights reserved.</p>
+    </div>
+</body>
+</html> */

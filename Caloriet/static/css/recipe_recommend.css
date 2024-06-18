@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: #2b1d0f;
+    color: #fff;
+}
+
+header nav{
+    background-color: #212121;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+header nav h1{
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header nav form{
+    display: flex;
+    justify-content: center;
+}
+
+form input[type="text"]{
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+form input[type="text"],button
+[type="submit"]{
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+form button[type="submit"]{
+    background-color: #f44336;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s
+    ease-in-out;
+}
+
+form button[type="submit"]:hover,
+.recipe button:hover, .recipe-close-btn:hover{
+    background-color: #ff5c5c;
+}
+
+/*Main Section*/
+.search-container{
+    padding-top:20px;
+
+}
+.recipe-container{
+    text-align: center;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-gap: 40px;
+    width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    place-items: center;
+}
+
+.recipe {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(78, 73, 73, 0.1), -5px -5px 10px rgba(34, 34, 34, 0.5);
+    cursor: pointer;
+    max-width: 350px;
+    transition: tranform 0.3s ease-in-out;
+}
+
+.recipe:hover{
+    transform: scale(1.02);
+}
+
+.recipe img {
+    height: 300px;
+}
+
+.recipe h3 {
+    font-size: 24px;
+    margin-block: 5px;
+}
+
+.recipe p {
+    font-size: 20px;
+    color: #4a4a4a;
+    margin: 5px 0;
+}
+
+.recipe button{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 18px auto;
+    background-color: #f44336;
+    color: #fff;
+}
+
+/*Recipe Details*/
+.recipe-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background-color: #694c2f;
+    border-radius: 12px;
+    width: 60%;
+    height: 80%;
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+
+.recipe-details-content {
+    padding: 30px;
+}
+
+.recipeName{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.recipeInstructions {
+    line-height: 30px;
+    white-space: pre-line;
+}
+
+.recipeName, .recipeDietType, .recipeCal, .recipeFats, .recipeCarbs, .recipeProteins, .recipeIngredients, .recipeInstructions {
+    margin-bottom: 20px;
+}
+
+.recipe-close-btn{
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f44336;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*adding scrollbar*/
+.recipe-details::-webkit-scrollbar{
+    width: 10px;
+}
+
+.recipe-details::-webkit-scrollbar-thumb{
+    background: #b5b5ba;
+    border-radius: 16px;
+    --webkit-border-radius: 16px;
+}
+
+body::-webkit-scrollbar{
+    width: 16px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #a1a1a1;
+}
+
+body::-webkit-scrollbar-track{
+    background: #ebebeb;
+}
+
+/*Responsive Code*/
+@media screen and
+(max-width:600px){
+    header nav{
+        flex-direction: column;
+    }
+    header nav form{
+        width: 80%;
+        margin-top: 20px;
+    }
+}
+/* Style for the dropdown */
+select {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Style for the search box */
+.searchBox {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Style for the search button */
+.searchBtn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.searchBtn:hover {
+    background-color: #ff5c5c;
+}
+
+.selectRecipeBtn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.selectRecipeBtn:hover {
+    background-color: #ff5c5c;
+}
+
+/* Style for the dropdown label */
+label[for="dietTypeSelect"] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10px; /* Adjust spacing as needed */
+}
+
+/* Style for the dropdown itself */
+select#dietTypeSelect {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.search-container {
+    text-align: center; /* Aligns the content to the center */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.search-container input[type="text"],
+.search-container select,
+.search-container button {
+    margin: 0 10px; /* Add some horizontal margin between elements */
+}
+
+.search-container button[type="submit"] {
+    margin-right: 0; /* Remove margin from the right side of the button */
+}
+
+/*//*/
+
