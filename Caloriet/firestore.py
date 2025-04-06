@@ -3,7 +3,8 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 from google.cloud.firestore_v1.base_query import FieldFilter, Or
 
-cred = credentials.Certificate("Your Credential certificate")
+# TODO
+cred = credentials.Certificate("/home/user/Nutrisense-Diet-recommendation-system/Caloriet/service-acc-cred.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()

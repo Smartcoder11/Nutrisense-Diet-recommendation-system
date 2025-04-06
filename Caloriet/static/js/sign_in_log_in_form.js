@@ -2,13 +2,23 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 
+// const firebaseConfig = {
+//   apiKey: "api_key",
+//   authDomain: "caloriet-140e0.firebaseapp.com",
+//   projectId: "caloriet-140e0",
+//   storageBucket: "caloriet-140e0.appspot.com",
+//   messagingSenderId: "749478286575",
+//   appId: "1:749478286575:web:4df968d0de6a71d4a2771a"
+// };
+
 const firebaseConfig = {
-  apiKey: "api_key",
-  authDomain: "caloriet-140e0.firebaseapp.com",
-  projectId: "caloriet-140e0",
-  storageBucket: "caloriet-140e0.appspot.com",
-  messagingSenderId: "749478286575",
-  appId: "1:749478286575:web:4df968d0de6a71d4a2771a"
+  apiKey: "AIzaSyBybrcrkM4xqKWhwuXL1rHX8bXSjpAdEaY",
+  authDomain: "foodprediction-d5f79.firebaseapp.com",
+  projectId: "foodprediction-d5f79",
+  storageBucket: "foodprediction-d5f79.firebasestorage.app",
+  messagingSenderId: "823763056460",
+  appId: "1:823763056460:web:92c22949f62328d85741e9",
+  measurementId: "G-4C5BNQC3N7"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -6,7 +6,9 @@ from google.cloud.firestore_v1.transforms import DELETE_FIELD
 import datetime
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate("Your Credential certificate")
+# https://console.firebase.google.com/project/foodprediction-d5f79/settings/serviceaccounts/adminsdk
+# Go to this link and generate new service accound creds or share the same one with others
+cred = credentials.Certificate("/home/user/Nutrisense-Diet-recommendation-system/Caloriet/service-acc-cred.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
