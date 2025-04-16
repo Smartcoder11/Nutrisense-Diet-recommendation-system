@@ -8,26 +8,48 @@ const dietTypeSelect = document.getElementById('dietTypeSelect');
 const fetchRecipes = async (query, dietType) => {
     recipeContainer.innerHTML = "<h2>Fetching Recipes...</h2>";
     try {
+        // Check if the query is empty after trimming
+        if (!query.trim()) {
+            recipeContainer.innerHTML = `<h2>Please enter ingredients to search for.</h2>`;
+            return;
+        }
         const userIngredients = query.split(',').map(ingredient => ingredient.trim().toLowerCase());
-        const data = await fetch(`https://script.google.com/macros/s/AKfycbyQjZrIOw5-Wuu4nH7CzaZ-adRGligen3XijH3KBF9LzZOGqGQ4UdqPxx_k5COwKCmlZg/exec`);
-        const response = await data.json();
+        
+        const response = await fetch(`https://script.google.com/macros/s/AKfycbxoo3JXtNqPtRz98CqZBgnr0b0dXnwy-UJ0YGzy9Eadlkotf0Dr0LXu-chrYVlu9IN2/exec`);
 
-        const matchingRecipes = response.data.filter(recipe => {
-            const recipeIngredients = recipe.Ingredients.split(',').map(ingredient => ingredient.trim().toLowerCase());
-            const isMatchingIngredients = userIngredients.every(ingredient => recipeIngredients.includes(ingredient));
-            
-            if (dietType === 'all') {
-                return isMatchingIngredients;
-            } else if (dietType === 'non-vegetarian') {
-                console.log("Recipe Diet Type:", recipe.DietType);
-                return isMatchingIngredients && recipe.DietType.toLowerCase().includes('non-vegetarian');
-            } else if (dietType === 'vegetarian') {
-                console.log("Recipe Diet Type:", recipe.DietType);
-                return isMatchingIngredients && (recipe.DietType.toLowerCase().includes('vegetarian') && !recipe.DietType.toLowerCase().includes('non-vegetarian'));
-            } else if (dietType === 'vegan') {
-                console.log("Recipe Diet Type:", recipe.DietType);
-                return isMatchingIngredients && recipe.DietType.toLowerCase().includes('vegan');
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        const data = await response.json();
+        if (!data.data) {
+            throw new Error('No data found in the response');
+        }
+
+        const matchingRecipes = data.data.filter(recipe => {
+            // Handle missing Ingredients gracefully
+            const recipeIngredients = recipe.Ingredients ? recipe.Ingredients.split(',').map(ingredient => ingredient.trim().toLowerCase()) : [];
+             // Check for empty ingredients array
+            if (recipeIngredients.length === 0 && userIngredients.length > 0) {
+                return false; // If user has specified ingredients but recipe has none, it's not a match
             }
+             // Check if userIngredients array is empty
+            if (userIngredients.length === 0) {
+                return false; // If user hasn't specified any ingredients, no matches are possible
+            }
+            const isMatchingIngredients = userIngredients.every(ingredient => recipeIngredients.includes(ingredient));
+
+            if (!isMatchingIngredients) return false;
+
+            if (dietType === 'all') {
+                return true;
+            } else if (dietType === 'Non-Vegetarian') {
+                return recipe.DietType.toLowerCase() === 'Non-Vegetarian';
+            } else if (dietType === 'Vegetarian') {
+                return recipe.DietType.toLowerCase() === 'Vegetarian';
+            } else if (dietType === 'Vegan') {
+                return recipe.DietType.toLowerCase() === 'Vegan';
+            }
+            return false;
         });
 
         if (matchingRecipes.length > 0) {
@@ -35,17 +57,17 @@ const fetchRecipes = async (query, dietType) => {
             matchingRecipes.forEach(data => {
                 const recipeDiv = document.createElement('div');
                 recipeDiv.classList.add('recipe');
-                recipeDiv.innerHTML =`
+                recipeDiv.innerHTML = `
                     <img src="${data.Image}">
                     <h3>${data.FoodName}</h3>
-                    <p>Calories:${data.Calories}KCal<p>
+                    <p>Calories: ${data.Calories}KCal</p>
                     <p>${data.DietType}</p>
                 `;
                 const button = document.createElement('button');
                 button.textContent = "View Recipe";
                 recipeDiv.appendChild(button);
 
-                button.addEventListener('click',()=>{
+                button.addEventListener('click', () => {
                     openRecipePopup(data);
                 });
 
@@ -55,7 +77,8 @@ const fetchRecipes = async (query, dietType) => {
             recipeContainer.innerHTML = "<h2>No recipes found for the provided ingredients and diet type.</h2>";
         }
     } catch (error) {
-        recipeContainer.innerHTML = "<h2>Error in Fetching Recipes...</h2>";
+        console.error('Error fetching recipes:', error);
+        recipeContainer.innerHTML = "<h2>Error in Fetching Recipes. Please check the console for more details.</h2>";
     }
 }
 
@@ -103,15 +126,15 @@ const openRecipePopup = (data) => {
     });
 }
 
-recipeCloseBtn.addEventListener('click', ()=>{
-    recipeDetailsContent.parentElement.style.display ="none";
+recipeCloseBtn.addEventListener('click', () => {
+    recipeDetailsContent.parentElement.style.display = "none";
 });
 
-searchBtn.addEventListener('click', (e)=>{
+searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const searchInput = searchBox.value.trim();
     const selectedDietType = dietTypeSelect.value;
-    if(!searchInput){
+    if (!searchInput) {
         recipeContainer.innerHTML = `<h2>Type the ingredients in the search box.</h2>`;
         return;
     }
