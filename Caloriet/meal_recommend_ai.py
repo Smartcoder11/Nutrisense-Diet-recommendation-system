@@ -8,7 +8,7 @@ import google.generativeai as genai
 import ast
 
 # Gemini API
-# https://console.cloud.google.com/apis/credentials?invt=AbuB5A&project=foodprediction-d5f79
+
 genai.configure(api_key=PROCESS.env.gen_ai_secret)
 
 # Set up the model
