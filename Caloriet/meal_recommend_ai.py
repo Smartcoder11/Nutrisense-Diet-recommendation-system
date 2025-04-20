@@ -13,7 +13,8 @@ genai.configure(api_key="AIzaSyDxHCIWOK__gcg0_FHojdxP5viOQL-7PZ4")
 
 # Set up the model
 generation_config = {
-    "temperature": 1,
+    "temperature": 1,This creates a hidden `.git` directory that Git uses to track changes.
+
     "top_p": 0.95,
     "top_k": 0,
     "max_output_tokens": 8192,
