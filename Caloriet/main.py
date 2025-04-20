@@ -6,7 +6,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 # randomly generated secret key using hash function secrets.token_hex(16)
-app.secret_key = "8483268ed642ee4ac66098725d58080c"
+app.secret_key = PROCESS.env.app_secret
 
 
 

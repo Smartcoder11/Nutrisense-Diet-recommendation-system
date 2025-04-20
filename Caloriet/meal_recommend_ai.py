@@ -9,7 +9,7 @@ import ast
 
 # Gemini API
 # https://console.cloud.google.com/apis/credentials?invt=AbuB5A&project=foodprediction-d5f79
-genai.configure(api_key="AIzaSyDxHCIWOK__gcg0_FHojdxP5viOQL-7PZ4")
+genai.configure(api_key=PROCESS.env.gen_ai_secret)
 
 # Set up the model
 generation_config = {
