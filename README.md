@@ -1,5 +1,5 @@
-# Caloriet
-Caloriet is <b>personalized diet recommendations web application</b> that provides personalized meal plans based on users' deatils.
+# NutriSense
+nutrisense is <b>personalized diet recommendations web application</b> that provides personalized meal plans based on users' deatils.
 <br><br>
 Table of content:
 <ol>
